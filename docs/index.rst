@@ -24,14 +24,12 @@ Table of Contents
 .. toctree::
     :caption: Tutorials
 
-.. todo:: Add any Learn guide links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
+    Led Animations Guide - Pixel Mapping <https://learn.adafruit.com/circuitpython-led-animations/pixel-mapping>
 
 .. toctree::
     :caption: Related Products
 
-.. todo:: Add any product links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
+    NeoPixel Products <https://www.adafruit.com/category/168>
 
 .. toctree::
     :caption: Other Links
