@@ -108,10 +108,16 @@ class PixelMap:
 
     def __init__(self, strip, pixel_ranges, individual_pixels=False):
         self._pixels = strip
+        if not isinstance(pixel_ranges, list) and not isinstance(pixel_ranges, tuple):
+            raise TypeError("pixel_ranges must be tuple or list")
+
         if isinstance(pixel_ranges, list) or isinstance(pixel_ranges[0], list):
-            self._ranges = tuple(
-                tuple(item for item in sublist) for sublist in pixel_ranges
-            )
+            if not isinstance(pixel_ranges[0], int):
+                self._ranges = tuple(
+                    tuple(item for item in sublist) for sublist in pixel_ranges
+                )
+            else:
+                self._ranges = tuple(pixel_ranges)
 
         elif isinstance(pixel_ranges, tuple):
             self._ranges = pixel_ranges
@@ -130,7 +136,7 @@ class PixelMap:
             )
             return
         if isinstance(self._ranges[0], int):
-            self._ranges = [[n] for n in self._ranges]
+            self._ranges = tuple((n,) for n in self._ranges)
 
     def __repr__(self):
         return "[" + ", ".join([str(self[x]) for x in range(self.n)]) + "]"
@@ -148,10 +154,7 @@ class PixelMap:
 
     def __getitem__(self, index):
         if isinstance(index, slice):
-            out = []
-            for in_i in range(*index.indices(len(self._ranges))):
-                out.append(self._pixels[self._ranges[in_i][0]])
-            return out
+            return self._map[index]
         if index < 0:
             index += len(self)
         if index >= self.n or index < 0:
