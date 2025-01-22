@@ -2,7 +2,7 @@ Introduction
 ============
 
 
-.. image:: https://readthedocs.org/projects/adafruit-circuitpython-pixelmap/badge/?version=latest
+.. image:: https://readthedocs.org/projects/circuitpython-pixelmap/badge/?version=latest
     :target: https://docs.circuitpython.org/projects/pixelmap/en/latest/
     :alt: Documentation Status
 
