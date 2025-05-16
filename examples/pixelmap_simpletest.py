@@ -11,9 +11,12 @@ will need to alter the PixelMap values as well for this example to work.
 
 This example does not work on SAMD21 (M0) boards.
 """
+
 import time
+
 import board
 import neopixel
+
 from adafruit_pixelmap import PixelMap, horizontal_strip_gridmap
 
 # board.NEOPIXEL is the pin on the NeoTrellis M4.
