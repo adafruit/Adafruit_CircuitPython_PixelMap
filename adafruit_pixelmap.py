@@ -113,9 +113,7 @@ class PixelMap:
 
         if isinstance(pixel_ranges, list) or isinstance(pixel_ranges[0], list):
             if not isinstance(pixel_ranges[0], int):
-                self._ranges = tuple(
-                    tuple(item for item in sublist) for sublist in pixel_ranges
-                )
+                self._ranges = tuple(tuple(item for item in sublist) for sublist in pixel_ranges)
             else:
                 self._ranges = tuple(pixel_ranges)
 
@@ -131,9 +129,7 @@ class PixelMap:
 
     def _expand_ranges(self):
         if not self._individual_pixels:
-            self._ranges = tuple(
-                tuple(list(range(start, end))) for start, end in self._ranges
-            )
+            self._ranges = tuple(tuple(list(range(start, end))) for start, end in self._ranges)
             return
         if isinstance(self._ranges[0], int):
             self._ranges = tuple((n,) for n in self._ranges)
@@ -173,7 +169,6 @@ class PixelMap:
 
     @brightness.setter
     def brightness(self, brightness):
-        # pylint: disable=attribute-defined-outside-init
         self._pixels.brightness = min(max(brightness, 0.0), 1.0)
 
     def fill(self, color):
